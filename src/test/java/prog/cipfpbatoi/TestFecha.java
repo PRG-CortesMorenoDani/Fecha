@@ -230,8 +230,13 @@ public class TestFecha {
 
     @Test
     public void testIsBisiesto() {
-        assertFalse(Fecha.isBisiesto(1986), "El año 1986 no es bisiesto");
-        assertTrue(Fecha.isBisiesto(1992), "El año 1992 sí es bisiesto");
+        assertFalse(Fecha.isBisiesto(1986), "El año 1986 no es bisiesto por ser múltiplo de 4 y no de 100");
+        assertTrue(Fecha.isBisiesto(1992), "El año 1992 sí es bisiesto por ser múltiplo de 4 y no de 100");
+        assertTrue(Fecha.isBisiesto(400), "El año 400 sí es bisiesto por ser múltiplo de 4 de 100 y de 400 a la vez");
+        assertTrue(Fecha.isBisiesto(800), "El año 800 sí es bisiesto por ser múltiplo de 4 de 100 y de 400 a la vez");
+        assertTrue(Fecha.isBisiesto(1200), "El año 1200 sí es bisiesto por ser múltiplo de 4 de 100 y de 400 a la vez");
+        assertTrue(Fecha.isBisiesto(1600), "El año 1600 sí es bisiesto por ser múltiplo de 4 de 100 y de 400 a la vez");
+        assertTrue(Fecha.isBisiesto(2000), "El año 2000 sí es bisiesto por ser múltiplo de 4 de 100 y de 400 a la vez");
     }
 
     @Test
