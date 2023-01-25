@@ -114,15 +114,6 @@ class Fecha {
 	}
 
 	/**
-	 * Devuelve el número de la semana dentro del año actual.
-	 *
-	 * @return int dia semana
-	 */
-	public int getNumeroSemana() {
-		return 0;
-	}
-
-	/**
 	 * Retorna el dia correspondiente de la semana en formato String
 	 * @return String
 	 */
@@ -136,6 +127,15 @@ class Fecha {
 	 */
 	public boolean isFestivo() {
 		return false;
+	}
+
+	/**
+	 * Devuelve el número de la semana dentro del año actual.
+	 *
+	 * @return int dia semana
+	 */
+	public int getNumeroSemana() {
+		return 0;
 	}
 
 	/**
