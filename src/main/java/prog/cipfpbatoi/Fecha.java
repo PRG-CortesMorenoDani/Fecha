@@ -1,11 +1,13 @@
 package prog.cipfpbatoi;
 
+import java.util.StringTokenizer;
+
 class Fecha {
-	
+
 	private int dia;
-	
+
 	private int mes;
-	
+
 	private int anyo;
 
 	private static final String[] DIAS_TEXTO = new String[] { "domingo", "lunes", "martes", "miercoles", "jueves", "viernes",
@@ -20,6 +22,9 @@ class Fecha {
 	 */
 	public Fecha() {
 		// tu codigo aqui
+		this.dia = 1;
+		this.mes = 1;
+		this.anyo = 1970;
 	}
 
 	/**
@@ -30,6 +35,9 @@ class Fecha {
 	 */
 	public Fecha(int dia, int mes, int anyo) {
 		// Tu código aquí
+		this.dia = dia;
+		this.mes = mes;
+		this.anyo = anyo;
 	}
 
 	/**
@@ -40,6 +48,20 @@ class Fecha {
 	 */
 	public Fecha(String fecha) {
 		// Tu código aquí
+		StringTokenizer st = new StringTokenizer(fecha, "/");
+
+		int dia = Integer.parseInt(st.nextToken());
+
+		int mes = Integer.parseInt(st.nextToken());
+
+		int anyo = Integer.parseInt(st.nextToken());
+
+		this.dia = dia;
+		this.mes = mes;
+		this.anyo = anyo;
+
+
+
 	}
 
 	/**
@@ -47,6 +69,9 @@ class Fecha {
 	 */
 	public void set(int dia, int mes, int anyo) {
 		// Tu código aquí
+		this.dia = dia;
+		this.mes = mes;
+		this.anyo = anyo;
 	}
 
 	/**
@@ -54,7 +79,8 @@ class Fecha {
 	 * @return
 	 */
 	public Fecha clone() {
-		return null;
+		Fecha fecha = new Fecha(this.dia, this.mes, this.anyo);
+		return fecha;
 	}
 
 	/**
@@ -62,7 +88,7 @@ class Fecha {
 	 * @return @dia
 	 */
 	public int getDia() {
-		return 0;
+		return dia;
 	}
 
 	/**
@@ -70,7 +96,7 @@ class Fecha {
 	 * @return @mes
 	 */
 	public int getMes(){
-		return 0;
+		return mes;
 	}
 
 	/**
@@ -78,7 +104,7 @@ class Fecha {
 	 * @return @mes
 	 */
 	public int getAnyo(){
-		return 0;
+		return anyo;
 	}
 
 	/**
@@ -86,6 +112,7 @@ class Fecha {
 	 */
 	public void mostrarFormatoES()  {
 		// Tu código aquí
+		System.out.printf("%02d-%02d-%d", this.dia, this.mes, this.anyo);
 	}
 
 	/**
@@ -93,6 +120,8 @@ class Fecha {
 	 */
 	public void mostrarFormatoGB() {
 		// Tu código aquí
+		System.out.printf("%d-%02d-%02d", this.anyo,this.mes,this.dia);
+
 	}
 
 	/**
@@ -101,6 +130,45 @@ class Fecha {
 	 */
 	public void mostrarFormatoTexto() {
 		// Tu código aquí
+		switch (this.mes) {
+			case 1:
+				System.out.printf("%02d-enero-%d",this.dia,this.anyo);
+				break;
+			case 2:
+				System.out.printf("%02d-febrero-%d",this.dia,this.anyo);
+				break;
+			case 3:
+				System.out.printf("%02d-marzo-%d",this.dia,this.anyo);
+				break;
+			case 4:
+				System.out.printf("%02d-abril-%d",this.dia,this.anyo);
+				break;
+			case 5:
+				System.out.printf("%02d-mayo-%d",this.dia,this.anyo);
+				break;
+			case 6:
+				System.out.printf("%02d-junio-%d",this.dia,this.anyo);
+				break;
+			case 7:
+				System.out.printf("%02d-julio-%d",this.dia,this.anyo);
+				break;
+			case 8:
+				System.out.printf("%02d-agosto-%d",this.dia,this.anyo);
+				break;
+			case 9:
+				System.out.printf("%02d-septiembre-%d",this.dia,this.anyo);
+				break;
+			case 10:
+				System.out.printf("%02d-octubre-%d",this.dia,this.anyo);
+				break;
+			case 11:
+				System.out.printf("%02d-noviembre-%d",this.dia,this.anyo);
+				break;
+			case 12:
+				System.out.printf("%02d-diciembre-%d",this.dia,this.anyo);
+				break;
+
+		}
 	}
 
 	/**
@@ -110,7 +178,30 @@ class Fecha {
 	 * @return boolean
 	 */
 	public boolean isEqual(Fecha otraFecha) {
-		return false;
+		Fecha fecha = new Fecha (this.dia, this.mes, this.anyo);
+		if (this.dia == otraFecha.dia) {
+			if (this.mes == otraFecha.mes) {
+				if (this.anyo == otraFecha.anyo) {
+					return true;
+				} else {
+					return false;
+				}
+			} else {
+				return false;
+			}
+		} else {
+			return false;
+		}
+
+	}
+
+	/**
+	 * Devuelve el número de la semana dentro del año actual.
+	 *
+	 * @return int dia semana
+	 */
+	public int getNumeroSemana() {
+		return 0;
 	}
 
 	/**
@@ -127,15 +218,6 @@ class Fecha {
 	 */
 	public boolean isFestivo() {
 		return false;
-	}
-
-	/**
-	 * Devuelve el número de la semana dentro del año actual.
-	 *
-	 * @return int dia semana
-	 */
-	public int getNumeroSemana() {
-		return 0;
 	}
 
 	/**
@@ -205,7 +287,7 @@ class Fecha {
 	 *  @return int total dias mes en curso
 	 */
 	public static int getDiasMes(int mes, int anyo) {
-		return 0;
+		return 1;
 	}
 
 	/**
